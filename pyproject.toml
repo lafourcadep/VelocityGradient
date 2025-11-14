@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "VelocityGradient"
+version = "1.0.0"
+description = "Velocity gradient tensor calculation"
+keywords = ["ovito", "ovito-extension"]
+authors = [{name = "Paul Lafourcade", email = "paul.lafourcade@cea.fr"}]
+maintainers = [{name = "Paul Lafourcade", email = "paul.lafourcade@cea.fr"}]
+license = {text = "GPLv3"}
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "ovito >= 3.12.0",
+]
+
+[project.urls]
+repository = "https://github.com/lafourcadep/VelocityGradient"
+
+[project.entry-points.'OVITO.Modifier']
+"VelocityGradient" = "VelocityGradient:VelocityGradient"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+filterwarnings = [
+    "error",
+    "ignore:module 'sre_parse' is deprecated:DeprecationWarning",
+    "ignore:module 'sre_constants' is deprecated:DeprecationWarning",
+]
