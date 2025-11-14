@@ -16,7 +16,7 @@ class VelocityGradient(ModifierInterface):
             )
         
         L = np.zeros((data.particles.count,9))
-        finder = CutoffNeighborFinder(5, data)
+        finder = CutoffNeighborFinder(self.cutoff, data)
         velocities = data.particles.velocities
         for index in range(data.particles.count):
             yield 'Calculating velocity gradient tensor'
